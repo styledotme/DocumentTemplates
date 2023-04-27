@@ -56,7 +56,27 @@ The Makeup Cosmetics Inventory Management Dashboard uses the Model-View-Controll
 
 ### Component Tree
 
-![Component Tree](https://i.imgur.com/7RS0R0n.png)
+Sure, here's an example of a component tree for the Makeup Cosmetics Inventory Management Dashboard:
+
+```
+App
+├── Login
+└── Dashboard
+    ├── ProductTable
+    │   └── ProductRow
+    └── ProductForm
+        ├── FormInput
+        ├── FormTextarea
+        ├── FormSelect
+        └── FormButton
+``` 
+
+- `App` is the top-level component that renders either the `Login` or `Dashboard` component based on whether the user is authenticated or not.
+- `Login` is the component that renders the login form.
+- `Dashboard` is the main component that renders the `ProductTable` and `ProductForm` components.
+- `ProductTable` is a table that displays the existing product inventory as `ProductRow` components.
+- `ProductRow` is a row in the `ProductTable` that displays the details of a single product.
+- `ProductForm` is a form for uploading new products and editing existing products. It contains multiple `FormInput`, `FormTextarea`, `FormSelect`, and `FormButton` components for the user to enter and submit product details.
 
 ### Component Descriptions
 
@@ -71,7 +91,63 @@ The Makeup Cosmetics Inventory Management Dashboard uses the Model-View-Controll
 
 ### Data Flow Diagram
 
-![Data Flow Diagram](https://i.imgur.com/1W8Jfbz.png)
+Sure, here's an example of a data flow diagram for the Makeup Cosmetics Inventory Management Dashboard:
+
+```
+  ┌─────────┐           ┌──────────────┐           ┌─────────┐
+  │  User   │           │   Dashboard  │           │ Product │
+  └─────────┘           └──────────────┘           └─────────┘
+       │                       │                        │
+       │   Request Products    │                        │
+       ├──────────────────────>│                        │
+       │                       │                        │
+       │      Return Data      │                        │
+       │<──────────────────────┤                        │
+       │                       │                        │
+       │   Request Login       │                        │
+       ├──────────────────────>│                        │
+       │                       │                        │
+       │     Authenticate      │                        │
+       │<──────────────────────┤                        │
+       │                       │                        │
+       │  Upload Product Form  │                        │
+       ├──────────────────────>│                        │
+       │                       │                        │
+       │       Validate        │                        │
+       │                       ├───────────────────────>│
+       │                       │          Save          │
+       │                       │<───────────────────────┤
+       │      Confirmation     │                        │
+       │<──────────────────────┤                        │
+       │                       │    Request Product     │
+       │                       ├───────────────────────>│
+       │                       │                        │
+       │                       │      Return Data       │
+       │                       │<───────────────────────┤
+       │   Request Edit Form   │                        │
+       ├──────────────────────>│                        │
+       │                       │                        │
+       │      Return Form      │                        │
+       │<──────────────────────┤                        │
+       │                       │    Update Product      │
+       │                       ├───────────────────────>│
+       │                       │          Save          │
+       │                       │<───────────────────────┤
+       │      Confirmation     │                        │
+       │<──────────────────────┤                        │
+       │                       │                        │
+```
+
+The data flow diagram shows the flow of data between the user, the dashboard, and the product data. 
+
+- The user requests product data from the dashboard, which is sent to the server.
+- The server returns the product data to the dashboard, which is displayed in the product table.
+- The user logs in to the dashboard, and the server authenticates the user.
+- The user uploads a product form, which is validated by the server and saved to the product data.
+- The server sends a confirmation message to the dashboard.
+- The user requests to edit a product, and the server returns the edit form.
+- The user updates a product form, which is validated by the server and saved to the product data.
+- The server sends a confirmation message to the dashboard.
 
 ### Data Models
 
